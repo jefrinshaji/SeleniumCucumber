@@ -52,8 +52,17 @@ Feature: Validate Google homepage
       | ਪੰਜਾਬੀ  |
 
     # Validate global footer
-    # Country
-    Then the user validates "google.footer.country.xpath" text is "India"
+#    Then the user validates "google.footer.xpath" is visible
+    And the user validates "google.footer.country.xpath" text is "India"
     And the user validates "google.footer.ad.xpath" text is "Advertising"
     And the user validates "google.business.xpath" text is "Business"
     And the user validates "google.footer.how.xpath" contains text "How Search works"
+    And the user validates "google.footer.privacy.xpath" text is "Privacy"
+    And the user validates "google.footer.terms.xpath" text is "Terms"
+    # Validate clicking on settings
+    And the user validates element "google.footer.settings" with attribute "aria-expanded" value is "false"
+    And the user validates element "google.footer.settings" with attribute "aria-haspopup" value is "false"
+    When the user clicks on "google.footer.settings"
+    Then the user validates element "google.footer.settings.xpath" with attribute "aria-expanded" value is "true"
+    Then the user validates element "google.footer.settings.xpath" with attribute "aria-haspopup" value is "true"
+    And the user validates "google.footer.settings.menu.tag" is visible
