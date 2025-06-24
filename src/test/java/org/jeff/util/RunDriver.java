@@ -16,7 +16,7 @@ public class RunDriver {
     private static WebDriver driver;
 
     @Before
-    public void setUp() {
+    public static void setUp() {
         String windowsPathReference = "src/test/resources/BrowserDriver/windows/";
         String macPathReference = "src/test/resources/BrowserDriver/mac/";
         String linuxPathReference = "src/test/resources/BrowserDriver/linux/";

@@ -25,7 +25,7 @@ Feature: Validate Google homepage
     # Validate Google apps window
     When the user force clicks on "google.apps.xpath"
     And the user validates element "google.apps.window.xpath" with attribute "style" does not contains value "visibility: hidden;"
-    
+
     # Validate input/search text area
     Then the user validates "google.searchicon.xpath" is visible
     And the user validates "google.searchbox.xpath" is visible
@@ -38,7 +38,7 @@ Feature: Validate Google homepage
     And the user validates element "google.searchbutton.xpath" with attribute "aria-label" value is "Google Search"
     Then the user validates "google.feelingluckybutton.xpath" is visible
     And the user validates element "google.feelingluckybutton.xpath" with attribute "aria-label" value is "I'm Feeling Lucky"
-    
+
     # Validate languages supported
     Then the user validates element "google.languages.xpath" has 9 items
       | हिन्दी  |
@@ -60,9 +60,8 @@ Feature: Validate Google homepage
     And the user validates "google.footer.privacy.xpath" text is "Privacy"
     And the user validates "google.footer.terms.xpath" text is "Terms"
     # Validate clicking on settings
-    And the user validates element "google.footer.settings" with attribute "aria-expanded" value is "false"
-    And the user validates element "google.footer.settings" with attribute "aria-haspopup" value is "false"
-    When the user clicks on "google.footer.settings"
+    And the user validates element "google.footer.settings.xpath" with attribute "aria-expanded" value is "false"
+    And the user validates element "google.footer.settings.xpath" with attribute "aria-haspopup" value is "true"
+    When the user clicks on "google.footer.settings.xpath"
     Then the user validates element "google.footer.settings.xpath" with attribute "aria-expanded" value is "true"
-    Then the user validates element "google.footer.settings.xpath" with attribute "aria-haspopup" value is "true"
     And the user validates "google.footer.settings.menu.tag" is visible

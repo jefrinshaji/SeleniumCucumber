@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class CommonSteps {
-    protected static WebDriver driver = RunDriver.getDriver();
+    WebDriver driver = RunDriver.getDriver();
     ReadProperties propertiesReader = new ReadProperties();
     LocatorUtil locatorUtil = new LocatorUtil();
     JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -142,7 +142,7 @@ public class CommonSteps {
     public void waitTillObjectLoad(String locator) throws URISyntaxException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         By xpathVal = locatorUtil.locator(locator);
-        System.out.println("The locator is " + xpathVal);
+//        System.out.println("The locator is " + xpathVal);
         Assert.assertTrue("The object did not load in a minute",
                 wait.until(ExpectedConditions.visibilityOfElementLocated(xpathVal)).isDisplayed());
     }
