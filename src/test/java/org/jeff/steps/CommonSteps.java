@@ -34,6 +34,7 @@ public class CommonSteps {
         driver.get(url);
     }
 
+    // Waits for the page to load for up to a minute
     @Then("the user waits till the page is loaded")
     public void waitTillPageLoad() {
         int initiatminutesVal;

@@ -1,7 +1,7 @@
 @Google @Regression
 Feature: Validate Google homepage
 
-  @Google
+  @Test:Google
   Scenario: Validate Google homepage
     Given the user navigates to the site "google.url"
     And the user waits till the page is loaded
@@ -39,6 +39,9 @@ Feature: Validate Google homepage
     Then the user validates "google.feelingluckybutton.xpath" is visible
     And the user validates element "google.feelingluckybutton.xpath" with attribute "aria-label" value is "I'm Feeling Lucky"
 
+    # Validate Gemini promo text
+    And the user validates "google.gemeni.promoimg.xpath" is visible
+    
     # Validate languages supported
     Then the user validates element "google.languages.xpath" has 9 items
       | हिन्दी  |
@@ -65,3 +68,12 @@ Feature: Validate Google homepage
     When the user clicks on "google.footer.settings.xpath"
     Then the user validates element "google.footer.settings.xpath" with attribute "aria-expanded" value is "true"
     And the user validates "google.footer.settings.menu.tag" is visible
+    Then the user validates "google.footer.settings.menuitem.xpath" has 5 below items
+      | Search settings     |
+      | Advanced search     |
+      | Your data in Search |
+      | Search history      |
+      | Search help         |
+
+    # Change theme
+    Then the user changes the page theme
